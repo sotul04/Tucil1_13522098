@@ -13,7 +13,7 @@
 
 Cyberpunk 2077 Breach Protocol adalah sebuah *minigame* peretasan pada permainan video Cyberpunk 2077. *Minigame* ini merupakan simulasi peretasan jaringan lokal dari *ICE (Intrusion Countermaeasures Electronics)* pada permainan *Cyberpunk 2077*.
 
-Pada awal akan ada sebuah matriks berisi token-token, buffer berisi token-token dengan jumlah maksimal token, dan sekuens berisi rangkaian token (dua atau lebih) yang memiliki bobot *reward*. Pemain bergerak dengan pola vertikal, horizontal, vertikal secara bergantian.
+Pada awal permainan akan ada sebuah matriks berisi token-token, buffer berisi token-token dengan jumlah maksimal token, dan sekuens berisi rangkaian token (dua atau lebih) yang memiliki bobot *reward*. Pemain bergerak dengan pola vertikal, horizontal, vertikal secara bergantian.
 Pemain memilih token pertama pada barisan paling atas pada matriks. Kemudian, mengikuti langkah pola permainan memilih token lain dan mencocokkannya dengan sekuens yang tersedia. Buffer yang memiliki jumlah token paling sedikit dengan poin *reward* terbanyak menjadi solusi optimal permainan ini. Sementara itu, jika tidak ada buffer yang memuat sekuen sama sekali maka tidak ada solusi yang ditemukan. 
 
 Proyek ini adalah membuat suatu algoritma dengan pendekatan *brute force* untuk menyelesaikan permainan *Cyberpunk 2077 Breach Protocol*.
