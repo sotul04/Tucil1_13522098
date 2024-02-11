@@ -7,7 +7,6 @@
   - [Cyberpunk 2077 Breach Protocol](#cyberpunk-2077-breach-protocol)
   - [Struktur Program](#struktur-program)
   - [Menjalankan Program dan Requirement](#menjalankan-program-dan-requirement)
-  - [Libraries Used](#libraries-used)
 
 ## Cyberpunk 2077 Breach Protocol
 
