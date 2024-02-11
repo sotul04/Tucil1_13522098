@@ -144,7 +144,10 @@ public class Game {
         int nToken = tokens.length;
         Sequence out = new Sequence(length, rand.nextInt(101));
         for (int i = 0; i < length; i++) {
-            out.sequence[i] = tokens[rand.nextInt(nToken)];
+            out.seqString += tokens[rand.nextInt(nToken)];
+            if (i != length-1) {
+                out.seqString += " ";
+            }
         }
         return out;
     }
@@ -158,38 +161,33 @@ public class Game {
         return false;
     }
 
-    public void bruteForce(Matrix matrix, boolean isVertical, Buffer buff, int curRow, int curCol) {
+    public void bruteForce(Matrix matrix, Visited visit, boolean isVertical, Buffer buff, int curRow, int curCol) {
         if (buff.maxsize > buff.length){
-            Matrix newMatrix = new Matrix(matrix);
-            newMatrix.setVisited(true, curRow, curCol);
+            Visited newVisit = new Visited(visit);
+            newVisit.setVisited(true, curRow, curCol);
             Buffer newBuff = buff.addTokenNew(matrix.getToken(curRow, curCol), curRow, curCol);
-            if (newBuff.checkBuffer(sekuen)) {
-                // if (newBuff.length == 5){
-                //     System.out.println(newBuff);
-                // }
+            if (newBuff.checkBuffer(sekuen) > 0) {
                 if (wasFound) {
                     if (newBuff.weight > solution.weight) {
                         solution = new Buffer(newBuff);
                     } else if (newBuff.weight == solution.weight && newBuff.length < solution.length) {
                         solution = new Buffer(newBuff);
-                        //System.out.println("Lewat sini.");
                     }
                 } else {
-                    //System.out.println("Initialized");
                     wasFound = true;
                     solution = new Buffer(newBuff);
                 }
             }
             if (isVertical) {
-                for (int i = 0; i < newMatrix.row; i++){
-                    if (!newMatrix.getVisited(i, curCol)){
-                        bruteForce(newMatrix, !isVertical, newBuff, i, curCol);
+                for (int i = 0; i < newVisit.row; i++){
+                    if (!newVisit.getVisited(i, curCol)){
+                        bruteForce(matrix, newVisit, !isVertical, newBuff, i, curCol);
                     }
                 }
             } else {
-                for (int i = 0; i < newMatrix.col; i++){
-                    if(!newMatrix.getVisited(curRow, i)) {
-                        bruteForce(newMatrix, !isVertical, newBuff, curRow, i);
+                for (int i = 0; i < newVisit.col; i++){
+                    if(!newVisit.getVisited(curRow, i)) {
+                        bruteForce(matrix, newVisit,!isVertical, newBuff, curRow, i);
                     }
                 }
             }
@@ -198,10 +196,10 @@ public class Game {
 
     public void startSearch() {
         int column = matriks.col;
-        Matrix newMat = new Matrix(matriks);
         Buffer buff = new Buffer(solution);
+        Visited visit = new Visited(matriks.row, matriks.col);
         for (int j = 0; j < column; j++) {
-            bruteForce(newMat, true, buff, 0, j);
+            bruteForce(matriks, visit,true, buff, 0, j);
         }
     }
 
@@ -209,11 +207,8 @@ public class Game {
         System.out.println("\nSolution:");
         if (wasFound){
             System.err.println(solution.weight);
-            String buff = "";
-            for (int i = 0; i < solution.length; i++){
-                buff += solution.buffer[i]+" ";
-            }
-            System.err.println(buff);
+            String buff = solution.buffString;
+            System.out.println(buff);
             for (int i = 0; i < solution.length; i++){
                 System.out.println((solution.position[i][1]+1)+", "+(solution.position[i][0]+1));
             }
@@ -239,11 +234,8 @@ public class Game {
         System.out.println(temp);
         System.out.println("Sekuens:");
         for (int i = 0; i < sekuen.length; i++){
-            String sek = "";
-            for (int j = 0; j < sekuen[i].length; j++){
-                sek += sekuen[i].sequence[j]+" ";
-            }
-            sek += "bobot: "+sekuen[i].weight;
+            String sek = sekuen[i].seqString;
+            sek += " bobot: "+sekuen[i].weight;
             System.out.println(sek);
         }
     }
@@ -252,9 +244,7 @@ public class Game {
         String save = "";
         if (wasFound) {
             save += Integer.toString(solution.weight) +"\n";
-            for (int i = 0; i < solution.length; i++) {
-                save += solution.buffer[i] + " ";
-            }
+            save += solution.buffString;
             save += "\n";
             for (int i = 0; i < solution.length; i++) {
                 save += (solution.position[i][1]+1) +", "+(solution.position[i][0]+1) + "\n";

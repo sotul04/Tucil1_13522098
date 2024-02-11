@@ -2,20 +2,17 @@ package models;
 
 public class Matrix {
     String content[][];
-    boolean isVisited[][];
     public int row;
     public int col;
 
     public Matrix() {
         content = new String[1000][1000];
-        isVisited = new boolean[1000][1000];
         row = 0;
         col = 0;
     }
 
     public Matrix(int rows, int column) {
         content = new String[rows][column];
-        isVisited = new boolean[rows][column];
         row = rows;
         col = column;
     }
@@ -23,11 +20,6 @@ public class Matrix {
     public Matrix(Matrix mat) {
         this(mat.row, mat.col);
         this.content = mat.content;
-        for (int i = 0; i < this.row; i++){
-            for (int j = 0; j < this.col; j++){
-                this.setVisited(mat.getVisited(i, j), i, j);
-            }
-        }
     }
 
     public String getToken(int i, int j) {
@@ -38,13 +30,13 @@ public class Matrix {
         content[i][j] = token;
     }
 
-    public void setVisited(boolean val,int i, int j) {
-        this.isVisited[i][j] = val;
-    }
+    // public void setVisited(boolean val,int i, int j) {
+    //     this.isVisited[i][j] = val;
+    // }
 
-    public boolean getVisited(int i, int j){
-        return this.isVisited[i][j];
-    }
+    // public boolean getVisited(int i, int j){
+    //     return this.isVisited[i][j];
+    // }
 
     @Override
     public String toString() {
@@ -52,16 +44,6 @@ public class Matrix {
         for (int i = 0 ; i < row; i++){
             for (int j = 0 ; j < col; j++){
                 temp += getToken(i, j);
-                if (j != col-1){
-                    temp+=" ";
-                }
-            }
-            temp += "\n";
-        }
-        temp += "Visited:\n";
-        for (int i = 0 ; i < row; i++){
-            for (int j = 0 ; j < col; j++){
-                temp += getVisited(i, j);
                 if (j != col-1){
                     temp+=" ";
                 }

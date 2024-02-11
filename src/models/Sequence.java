@@ -4,9 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Sequence {
-    public String sequence[];
     public int length;
     public int weight;
+    public String seqString;
 
     public static boolean isTokenEqual(String token1, String token2) {
         return token1.charAt(0) == token2.charAt(0) && token1.charAt(1) == token2.charAt(1); 
@@ -34,39 +34,25 @@ public class Sequence {
     }
 
     public Sequence(int length, int weight){
-        sequence = new String[length];
         this.length = length;
         this.weight = weight;
+        this.seqString = "";
     }
 
     public Sequence(String token[], int weight){
         this(token.length, weight);
-        for (int i = 0; i < length; i++){
-            sequence[i] = token[i];
+        for (int i = 0; i < length-1; i++){
+            seqString += token[i]+" ";
         }
+        seqString += token[length-1];
     }
 
     public boolean isSeqTokenEqual(Sequence second) {
-        if (this.length != second.length) {
-            return false;
-        }
-        for (int i = 0; i < this.length; i++) {
-            if (!isTokenEqual(this.sequence[i], second.sequence[i])) {
-                return false;
-            }
-        }
-        return true;
+        return this.seqString.equals(second.seqString);
     }
 
     @Override
     public String toString() {
-        String temp = "";
-        for (int i = 0; i < length; i++){
-            temp += sequence[i];
-            if (i != length-1) {
-                temp += "-";
-            }
-        }
-        return "Sequence{"+temp+", length:"+Integer.toString(length)+", weight: "+Integer.toString(weight)+"}";
+        return "Sequence{"+seqString+", length:"+Integer.toString(length)+", weight: "+Integer.toString(weight)+"}";
     }
 }
