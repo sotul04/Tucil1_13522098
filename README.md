@@ -23,7 +23,7 @@ Proyek ini adalah membuat suatu algoritma dengan pendekatan *brute force* untuk 
 ```
 │ .gitignore
 │ README.md
-├── src
+├── bin
 │   ├── models
 │   │   ├── Buffer.class
 │   │   ├── Matrix.class
@@ -49,7 +49,7 @@ Proyek ini adalah membuat suatu algoritma dengan pendekatan *brute force* untuk 
 
 Untuk menjalankan program dibutuhkan java versi 20+ (*windows*). (Soalnya waktu coba run di *ubuntu* pakai yang versi 19 gabisa, hehe)
 
-Untuk menjalankan program, pada *root directory* pindah ke bin dengan command cd bin
+Untuk menjalankan program, pada *root directory* pindah ke folder bin dengan command cd bin
 ```
 cd bin
 ```
@@ -62,3 +62,5 @@ Program akan berjalan dengan tampilan awal seperti ini
 <p align="center">
 <img src="./ss-program.png" alt="Preview" width="600"/>
 </p>
+
+Kemudian, pada pilihan masukan berupa file, file berekstensi ```.txt``` harus disimpan di dalam folder ```test/input```. Input saat diminta  ```Masukkan source file: ``` hanya nama file saja (diikuti ekstensi ```.txt```). Contohnya ```testCase1.txt```.
