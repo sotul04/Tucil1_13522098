@@ -26,7 +26,8 @@ Proyek ini adalah membuat suatu algoritma dengan pendekatan *brute force* untuk 
 │   ├── models
 │   │   ├── Buffer.class
 │   │   ├── Matrix.class
-│   │   └── Sequence.class
+│   │   ├── Sequence.class
+│   │   └── Visited.class
 │   ├── operations
 │   │   └── Game.class
 │   └── Main.class
@@ -35,7 +36,8 @@ Proyek ini adalah membuat suatu algoritma dengan pendekatan *brute force* untuk 
 │   ├── models
 │   │   ├── Buffer.java
 │   │   ├── Matrix.java
-│   │   └── Sequence.java
+│   │   ├── Sequence.class
+│   │   └── Visited.class
 │   ├── operations
 │   │   └── Game.java
 │   └── Main.java
