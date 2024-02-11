@@ -1,8 +1,8 @@
-# Tugas kecil 1 Strategi Algoritma - Suthasoma Mahardhika Munthe 13522098
+# Tugas Kecil 1 Strategi Algoritma - Suthasoma Mahardhika Munthe 13522098
 
 ## Daftar Isi
 
-- [Tugas kecil 1 Strategi Algoritma](#tugas-kecil-1-strategi-algoritma)
+- [Tugas Kecil 1 Strategi Algoritma](#tugas-kecil-1-strategi-algoritma---suthasoma-mahardhika-munthe-13522098)
   - [Daftar Isi](#daftar-isi)
   - [Cyberpunk 2077 Breach Protocol](#cyberpunk-2077-breach-protocol)
   - [Struktur Program](#struktur-program)
