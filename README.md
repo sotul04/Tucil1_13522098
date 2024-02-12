@@ -47,7 +47,7 @@ Proyek ini adalah membuat suatu algoritma dengan pendekatan *brute force* untuk 
 
 ## Menjalankan Program dan Requirement
 
-Untuk menjalankan program dibutuhkan java versi 20+ (*windows*). (Soalnya waktu coba run di *ubuntu* pakai yang versi 19 gabisa, hehe)
+Untuk menjalankan program dibutuhkan java versi 20+. (Soalnya waktu coba run di *ubuntu* pakai yang versi 19 gabisa, hehe)
 
 Untuk menjalankan program, pada *root directory* pindah ke folder bin dengan command cd bin
 ```
