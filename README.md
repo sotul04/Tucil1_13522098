@@ -65,4 +65,4 @@ Program akan berjalan dengan tampilan awal seperti ini
 
 Kemudian, pada pilihan masukan berupa file, file berekstensi ```.txt``` harus disimpan di dalam folder ```test/input```. Input saat diminta  ```Masukkan source file: ``` hanya nama file saja (diikuti ekstensi ```.txt```). Contohnya ```testCase1.txt```.
 
-> Penting untuk diperhatikan, file dengan ekstensi ```.txt``` harus memuat data sesuai format. Data khususnya yang akan direpresentasikan sebagai ```integer``` tidak boleh memuat karakter apapun selain karakter numerik baik di awal, di tengah, maupun di akhir baris(kecuali pada bagian dimensi matriks).
+> Penting untuk diperhatikan, file dengan ekstensi ```.txt``` harus memuat data sesuai format. Data khususnya yang akan direpresentasikan sebagai ```integer``` tidak boleh memuat karakter apapun selain karakter numerik baik di awal, di tengah, maupun di akhir baris (kecuali pada bagian dimensi matriks).
