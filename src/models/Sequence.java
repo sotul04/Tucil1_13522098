@@ -8,10 +8,6 @@ public class Sequence {
     public int weight;
     public String seqString;
 
-    public static boolean isTokenEqual(String token1, String token2) {
-        return token1.charAt(0) == token2.charAt(0) && token1.charAt(1) == token2.charAt(1); 
-    }
-
     public static boolean isTokenValid(String tokens, int length) {
         String regex = "^[a-zA-Z0-9]*$";
         Pattern pattern = Pattern.compile(regex);

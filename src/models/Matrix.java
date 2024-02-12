@@ -29,28 +29,4 @@ public class Matrix {
     public void setToken(String token, int i, int j) {
         content[i][j] = token;
     }
-
-    // public void setVisited(boolean val,int i, int j) {
-    //     this.isVisited[i][j] = val;
-    // }
-
-    // public boolean getVisited(int i, int j){
-    //     return this.isVisited[i][j];
-    // }
-
-    @Override
-    public String toString() {
-        String temp = "Matrix{\nTokens:\n";
-        for (int i = 0 ; i < row; i++){
-            for (int j = 0 ; j < col; j++){
-                temp += getToken(i, j);
-                if (j != col-1){
-                    temp+=" ";
-                }
-            }
-            temp += "\n";
-        }
-        temp += "row: "+Integer.toString(row)+", col: "+Integer.toString(col)+"}";
-        return temp;
-    }
 }

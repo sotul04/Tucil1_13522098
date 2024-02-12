@@ -41,16 +41,6 @@ public class Buffer {
         return newBuf;
     }
 
-    public void addToken(String token, int row, int col){
-        this.position[this.length][0] = row;
-        this.position[this.length][1] = col;
-        this.length += 1;
-        if (this.length != 0) {
-            this.buffString += " ";
-        }
-        this.buffString += token;
-    }
-
     public boolean isSeqExisted (Sequence seq) {
         return this.buffString.contains(seq.seqString);
     }
@@ -64,18 +54,5 @@ public class Buffer {
             }
         }
         return weight;
-    }
-
-    @Override
-    public String toString() {
-        String pos = "";
-        for (int i = 0; i < this.length; i++){
-            String temppos = "("+Integer.toString(this.position[i][1]+1)+","+Integer.toString(this.position[i][0]+1)+")";
-            pos += temppos;
-            if (i != this.length-1){
-                pos += "-";
-            }
-        }
-        return "Buffer{"+buffString+", "+pos+", weight: "+ Integer.toString(weight)+", maxsize: "+Integer.toString(maxsize)+", length: "+Integer.toString(length)+"}";
     }
 }
