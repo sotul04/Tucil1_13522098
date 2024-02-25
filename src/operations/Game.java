@@ -240,7 +240,7 @@ public class Game {
         }
     }
 
-    public void saveSolution(int time) {
+    public void saveSolution(int time, String abs_path) {
         String save = "";
         if (wasFound) {
             save += Integer.toString(solution.weight) +"\n";
@@ -254,26 +254,24 @@ public class Game {
             save += "0\nTidak ada Solusi\n\n"+time+"ms\n";
         }
 
-        String fileName = "../test/output/solution";
-        File testFile = new File(fileName+".txt");
-        int idx = 0;
-        while (testFile.exists()){
-            idx ++;
-            testFile = new File(fileName+"_"+idx+".txt");
-        }
-        if (idx != 0) {
-            fileName += "_" + idx + ".txt";
-        } else {
-            fileName += ".txt";
-        }
         try {
-            FileWriter writer = new FileWriter(fileName);
+            FileWriter writer = new FileWriter(abs_path);
             writer.write(save);
             writer.close();
-            System.out.println("\nSolusi berhasil disimpan pada: "+fileName+"\n");
+            System.out.println("\nSolusi berhasil disimpan pada: "+abs_path+"\n");
         } catch (Exception e) {
             System.out.println("An error occurred\n");
             e.printStackTrace();
         }
     }
+
+    public int getMaxSequenceLength() {
+        int len = 0;
+        for (int i = 0; i < sekuen.length; i++) {
+            if (len < sekuen[i].length) {
+                len = sekuen[i].length;
+            }
+        }
+        return len;
+    } 
 }
