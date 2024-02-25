@@ -174,7 +174,11 @@ public class GameGUI extends JFrame{
                             int diff = (int)(end-start);
                             newGame.displaySolution(diff);
 
-                            String currPath = System.getProperty("user.id");
+                            String currPath = System.getProperty("user.dir");
+
+                            Path path = Paths.get(currPath);
+                            Path parenPath = path.getParent();
+                            currPath = parenPath.toString();
 
                             new SolutionDisplay(newGame, diff, currPath);
 
