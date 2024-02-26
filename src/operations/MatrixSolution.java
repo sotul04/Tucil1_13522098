@@ -26,10 +26,14 @@ public class MatrixSolution extends JPanel{
             pos[i][1] = game.solution.position[i][1];
         }
         int main_row = row;
-        if (row == 0 && col == 0) {
+        int main_col = col;
+        if (row == 0){
             main_row = 1;
         }
-        this.setLayout(new GridLayout(main_row, col,1,1));
+        if (col == 0) {
+            main_col = 1;
+        }
+        this.setLayout(new GridLayout(main_row, main_col,1,1));
         int width = col*rectangle_length;
         int height = row*rectangle_length;
         this.setPreferredSize(new Dimension(width,height));

@@ -18,7 +18,7 @@ public class Bordered extends JPanel{
         // Creating a custom border
         Border customBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED);
         // Creating a TitledBorder with the custom border
-        TitledBorder titledBorder = new TitledBorder(customBorder, Title);
+        TitledBorder titledBorder = new TitledBorder(customBorder, "  "+Title);
         titledBorder.setTitleJustification(TitledBorder.LEFT);
         titledBorder.setTitlePosition(TitledBorder.BELOW_TOP);
         titledBorder.setTitleFont(new Font("Courier New", Font.BOLD, 20));

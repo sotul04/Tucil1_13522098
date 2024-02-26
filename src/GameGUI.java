@@ -1,9 +1,12 @@
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.File;
+import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.regex.Matcher;
@@ -14,9 +17,13 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -34,7 +41,7 @@ public class GameGUI extends JFrame{
         newGame = new Game();
 
         JPanel rightPanel = new JPanel();
-        rightPanel.setBounds(10, 0, 363, 500);
+        rightPanel.setBounds(0, 0, 400, 480);
         rightPanel.setBackground(new Color(0x888888));
         rightPanel.setLayout(null);
         rightPanel.setOpaque(true);
@@ -249,7 +256,47 @@ public class GameGUI extends JFrame{
         rightPanel.add(fileLabel);
         rightPanel.add(selectFile);
         this.setDefaultCloseOperation(3);
-        this.setSize(new Dimension(400,550));
+        this.setSize(new Dimension(400,530));
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu helpMenu = new JMenu("Help");
+        JMenu aboutUs = new JMenu("About Us");
+
+        helpMenu.setForeground(new Color(0xdfffdf));
+        aboutUs.setForeground(new Color(0xdfffdf));
+
+        JMenuItem helpMenuItem = new JMenuItem("Help");
+        JMenuItem aboutUsItem = new JMenuItem("About Us");
+
+        helpMenu.add(helpMenuItem);
+        aboutUs.add(aboutUsItem);
+
+        helpMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openWebPage("https://github.com/sotul04/Tucil1_13522098");
+                // JOptionPane.showMessageDialog(null, "Anda dapat membaca README untuk petunjuk lebih lanjut.", "Help Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        aboutUsItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openWebPage("https://github.com/sotul04");
+            }
+        });
+
+        menuBar.add(helpMenu);
+        menuBar.add(aboutUs);
+        menuBar.setBackground(new Color(0x444444));
+        menuBar.setBorder(new BevelBorder(BevelBorder.RAISED));
+
+        helpMenu.setMnemonic(KeyEvent.VK_H);
+        helpMenuItem.setMnemonic(KeyEvent.VK_H);
+        aboutUs.setMnemonic(KeyEvent.VK_A);
+        aboutUsItem.setMnemonic(KeyEvent.VK_A);
+
+        this.setJMenuBar(menuBar);
 
         this.add(rightPanel);
         // this.add(scrollPane);
@@ -277,5 +324,13 @@ public class GameGUI extends JFrame{
         }
         return true;
     }
+
+    private void openWebPage(String url) {
+        try {
+            Desktop.getDesktop().browse(new URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } 
     
 }

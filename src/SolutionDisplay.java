@@ -27,13 +27,13 @@ public class SolutionDisplay extends JFrame{
         
         int maksLengthSekuen = game.getMaxSequenceLength();
         
-        int vertical_space = game.wasFound? 13+13*(6+game.solution.length) : 25+20*3;
+        int vertical_space = game.wasFound? 22+22*(6+game.solution.length) : 25+22*3;
         int horizontal_space = maksLengthSekuen*20 + 20*5;
         int solution_length = game.solution.length > 9 ? game.solution.length*20 : 9*20;
         
         Dimension matrixDimension = new Dimension(game.matriks.col*MatrixSolution.rectangle_length,game.matriks.row*MatrixSolution.rectangle_length);
         Dimension resultDimension = new Dimension(solution_length, vertical_space+20);
-        Dimension sekuensDimension = new Dimension(horizontal_space, 20*game.sekuen.length+20);
+        Dimension sekuensDimension = new Dimension(horizontal_space, 24*game.sekuen.length+24);
         
         MatrixSolution matrixResult = new MatrixSolution(game);
         Solution resultSolution = new Solution(game, time);
