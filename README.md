@@ -60,8 +60,15 @@ java Main
 Program akan berjalan dengan tampilan awal seperti ini
 <br>
 <p align="center">
-<img src="./ss-program.png" alt="Preview" width="600"/>
+<img src="./ss-program.png" alt="Preview" width="400"/>
 </p>
+<p align="center">
+<br>
+<br>
+<img src="./ss-solution.png" alt="Pop Up" width="500">
+</p>
+<br>
+<br>
 
 Kemudian, pada pilihan masukan berupa file, file berekstensi ```.txt``` harus disimpan di dalam folder ```test/input```. Input saat diminta  ```Masukkan source file: ``` hanya nama file saja (diikuti ekstensi ```.txt```). Contohnya ```testCase1.txt```.
 
