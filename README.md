@@ -60,12 +60,12 @@ java Main
 Program akan berjalan dengan tampilan awal seperti ini
 <br>
 <p align="center">
-<img src="./ss-program.png" alt="Preview" width="400"/>
+<img src="./ss-program.png" alt="Preview" width="300"/>
 </p>
 <p align="center">
 <br>
 <br>
-<img src="./ss-solution.png" alt="Pop Up" width="500">
+<img src="./ss-solution.png" alt="Pop Up" width="600">
 </p>
 <br>
 <br>
