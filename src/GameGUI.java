@@ -24,7 +24,6 @@ import operations.Game;
 
 public class GameGUI extends JFrame{
 
-    private boolean inputValid;
     Game newGame;
 
     GameGUI() {
@@ -33,7 +32,6 @@ public class GameGUI extends JFrame{
         this.setIconImage(icon.getImage());
 
         newGame = new Game();
-        inputValid = false;
 
         JPanel rightPanel = new JPanel();
         rightPanel.setBounds(10, 0, 363, 500);
@@ -101,10 +99,8 @@ public class GameGUI extends JFrame{
                 int nToken = nTokIntegerInput.getInputNumber();
                 if (isTokenValid(input, nToken)) {
                     errorLabel.setVisible(false);
-                    inputValid = true;
                 } else {
                     errorLabel.setVisible(true);
-                    inputValid = false;
                 }
             }
         });
@@ -155,7 +151,6 @@ public class GameGUI extends JFrame{
                         int nToken = nTokIntegerInput.getInputNumber();
                         if (isTokenValid(input, nToken)) {
                             errorLabel.setVisible(false);
-                            inputValid = true;
                             String[] tokens = input.split(" ");
                             newGame.randomGenerate(
                                 nTokIntegerInput.getInputNumber(),
@@ -184,7 +179,6 @@ public class GameGUI extends JFrame{
 
                         } else {
                             errorLabel.setVisible(true);
-                            inputValid = false;
                         }
                     }
             }

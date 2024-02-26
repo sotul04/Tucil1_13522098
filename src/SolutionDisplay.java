@@ -1,15 +1,20 @@
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
+import operations.Bordered;
 import operations.Game;
 import operations.MatrixSolution;
 import operations.Sekuens;
@@ -34,9 +39,12 @@ public class SolutionDisplay extends JFrame{
         Solution resultSolution = new Solution(game, time);
         Sekuens sekuens = new Sekuens(game);
         
-        matrixResult.setBounds(10,15,(int)matrixDimension.getWidth(), (int)matrixDimension.getHeight());
-        resultSolution.setBounds(20+(int)matrixDimension.getWidth(),10, (int)resultDimension.getWidth(), (int)resultDimension.getHeight());
-        sekuens.setBounds(20+(int)matrixDimension.getWidth()+20+(int)resultDimension.getWidth(),10,(int)sekuensDimension.getWidth(),(int)sekuensDimension.getHeight());
+        //matrixResult.setBounds(10,15,(int)matrixDimension.getWidth(), (int)matrixDimension.getHeight());
+        matrixResult.setPreferredSize(matrixDimension);
+        //resultSolution.setBounds(20+(int)matrixDimension.getWidth(),10, (int)resultDimension.getWidth(), (int)resultDimension.getHeight());
+        resultSolution.setPreferredSize(resultDimension);
+        sekuens.setPreferredSize(sekuensDimension);
+        //sekuens.setBounds(20+(int)matrixDimension.getWidth()+20+(int)resultDimension.getWidth(),10,(int)sekuensDimension.getWidth(),(int)sekuensDimension.getHeight());
 
         int frame_width = (int) matrixDimension.getWidth() + (int) sekuensDimension.getWidth()+ (int) resultDimension.getWidth();
         int frame_height = (int) matrixDimension.getHeight();
@@ -68,15 +76,45 @@ public class SolutionDisplay extends JFrame{
             }
         });
 
-        this.add(saveOption);
-        this.add(matrixResult);
-        this.add(resultSolution);
-        this.add(sekuens);
+        Bordered matrixGame = new Bordered(matrixResult, "Matrix");
+        //matrixGame.setBounds(10,15,(int)matrixGame.getPreferredSize().getWidth(), (int)matrixGame.getPreferredSize().getHeight());
+        Bordered resultGame = new Bordered(resultSolution, "Solution");
+        Bordered sekuensGame = new Bordered(sekuens, "Sekuens");
 
-        this.setLayout(null);
+        Container container = this.getContentPane();
+
+        BoxLayout boxLayout = new BoxLayout(container, BoxLayout.Y_AXIS);
+        container.setLayout(boxLayout);
+
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
+
+        matrixGame.setAlignmentX(Component.LEFT_ALIGNMENT);
+        resultGame.setAlignmentX(Component.CENTER_ALIGNMENT);
+        sekuensGame.setAlignmentX(Component.RIGHT_ALIGNMENT);
+
+        topPanel.add(matrixGame);
+        topPanel.add(resultGame);
+        topPanel.add(sekuensGame);
+        
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setPreferredSize(new Dimension(300,70));
+        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.X_AXIS));
+
+        saveOption.setAlignmentY(Component.CENTER_ALIGNMENT);
+        saveOption.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        bottomPanel.add(saveOption);
+        bottomPanel.setBackground(new Color(0x333333));
+        bottomPanel.setOpaque(true);
+        bottomPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        this.add(topPanel);
+        this.add(bottomPanel);
+
         this.getContentPane().setBackground(new Color(0x333333));
         this.setVisible(true);
-        this.setSize(frame_width, frame_height);
+        this.pack();
         this.setIconImage(icon.getImage());
         this.setTitle("Solution");
 
