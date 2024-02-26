@@ -28,26 +28,50 @@ Proyek ini adalah membuat suatu algoritma dengan pendekatan *brute force* untuk 
 │   │   ├── Sequence.class
 │   │   └── Visited.class
 │   ├── operations
-│   │   └── Game.class
-│   └── Main.class
+│   │   ├── Bordered.class
+│   │   ├── Game.class
+│   │   ├── MatrixSolution.class
+│   │   ├── Sekuens.class
+│   │   ├── Solution.class
+│   │   └── Token.class 
+│   ├── GameGUI.class
+│   ├── GameGUI$1.class
+│   ├── GameGUI$2.class
+│   ├── GameGUI$3.class
+│   ├── GameGUI$4.class
+│   ├── GameGUI$5.class
+│   ├── IntegerInput.class
+│   ├── Main.class
+│   ├── SolutionDisplay.class
+│   └── SolutionDisplay$1.class
 ├── doc
 ├── src
 │   ├── models
 │   │   ├── Buffer.java
 │   │   ├── Matrix.java
-│   │   ├── Sequence.class
-│   │   └── Visited.class
+│   │   ├── Sequence.java
+│   │   └── Visited.java
 │   ├── operations
-│   │   └── Game.java
-│   └── Main.java
+│   │   ├── Bordered.java
+│   │   ├── Game.java
+│   │   ├── MatrixSolution.java
+│   │   ├── Sekuens.java
+│   │   ├── Solution.java
+│   │   └── Token.java 
+│   ├── GameGUI.java
+│   ├── icon.png
+│   ├── IntegerInput.java
+│   ├── logo.png
+│   ├── Main.java
+│   └── SolutionDisplay.java
 └── test
-    ├── input                  # Semua masukan berupa file disimpan di folder ini
-    └── output                 # Hasil penyimpanan solusi disimpan di folder ini
+    ├── input                  # Default input folder
+    └── output                 # Default save folder
 ```
 
 ## Menjalankan Program dan Requirement
 
-Untuk menjalankan program dibutuhkan java versi 20+. (Soalnya waktu coba run di *ubuntu* pakai yang versi 19 gabisa, hehe)
+Untuk menjalankan program dibutuhkan java versi 20+.
 
 Untuk menjalankan program, pada *root directory* pindah ke folder bin dengan command cd bin
 ```
@@ -62,6 +86,8 @@ Program akan berjalan dengan tampilan awal seperti ini
 <p align="center">
 <img src="./ss-program.png" alt="Preview" width="300"/>
 </p>
+<br>
+Tampilan hasil pemrosesan program dapat dilihat pada gambar di bawah ini.
 <p align="center">
 <br>
 <br>
@@ -70,6 +96,6 @@ Program akan berjalan dengan tampilan awal seperti ini
 <br>
 <br>
 
-Kemudian, pada pilihan masukan berupa file, file berekstensi ```.txt``` harus disimpan di dalam folder ```test/input```. Input saat diminta  ```Masukkan source file: ``` hanya nama file saja (diikuti ekstensi ```.txt```). Contohnya ```testCase1.txt```.
+Kemudian, pada pilihan masukan berupa file, hanya file berekstensi ```.txt``` yang dapat diproses oleh program.
 
 > Penting untuk diperhatikan, file dengan ekstensi ```.txt``` harus memuat data sesuai format. Data khususnya yang akan direpresentasikan sebagai ```integer``` tidak boleh memuat karakter apapun selain karakter numerik baik di awal, di tengah, maupun di akhir baris (kecuali pada bagian dimensi matriks).
