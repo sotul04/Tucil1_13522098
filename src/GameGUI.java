@@ -41,7 +41,7 @@ public class GameGUI extends JFrame{
         newGame = new Game();
 
         JPanel rightPanel = new JPanel();
-        rightPanel.setBounds(0, 0, 400, 480);
+        rightPanel.setBounds(0, 0, 400, 495);
         rightPanel.setBackground(new Color(0x888888));
         rightPanel.setLayout(null);
         rightPanel.setOpaque(true);
@@ -256,7 +256,7 @@ public class GameGUI extends JFrame{
         rightPanel.add(fileLabel);
         rightPanel.add(selectFile);
         this.setDefaultCloseOperation(3);
-        this.setSize(new Dimension(400,530));
+        this.setSize(new Dimension(400,550));
 
         JMenuBar menuBar = new JMenuBar();
         JMenu helpMenu = new JMenu("Help");
